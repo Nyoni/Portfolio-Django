@@ -50,3 +50,78 @@ python manage.py runserver
 
 -To create the app, run the following command, example to be deleted later:
 python manage.py startapp hello_world
+
+-This will create another folder called hello_world with several files:
+
+* __init__.py tells Python to treat the directory as a Python package.
+* admin.py contains settings for the Django admin pages.
+* apps.py contains settings for the application configuration.
+* models.py contains a series of classes that Django’s ORM converts to database
+  tables.
+* tests.py contains test classes.
+* views.py contains functions and classes that handle what data is displayed in
+  the HTML templates.
+
+-Once created the app needs to be installed in the project. 
+-navigate to nyoni_portfolio/settings.py, 
+-add the following line of code under INSTALLED_APPS:  
+
+    'hello_world'
+
+-This line of code means that your project now knows the hello_world app exists.
+-The next step is to create a view so that you can display something to a user.
+
+Create a View
+-Views are a collection of functions or classes inside the views.py file in
+your app (hello_world)folder. 
+-Each function or class will handle the logic that gets processed each
+time a different URL is visited.
+-Navigate to the views.py file in the hello_world folder. 
+-There’s already a line of code in there that imports render(). 
+-Add the following code:
+
+        from django.shortcuts import render
+        def hello_world(request):
+            return render(request, 'hello_world.html', {})
+
+-This piece of code defines a view function called hello_world(). 
+-When this function is called, it will render an HTML file called hello_world.html.
+-The view function takes one argument, request. 
+-This object is an HttpRequestObject that is created whenever a page is loaded. 
+-It contains information about the request, such as the method, which can take 
+    several values including GET and POST.
+An HTML template needs to be created to display to the user. 
+-render() looks for HTML templates inside a folder called templates inside 
+    the app directory. 
+
+-Add this line to the hello_world html file
+
+<h1> Hello World </>
+
+-A function to handle views and templates to display to the user have been created. 
+-The final step is to hook up URLs so that you can visit the page you’ve just
+created. 
+-The project has a module called urls.py in which you need to include a
+URL configuration for the hello_world app. 
+-Inside nyoni_portfolio/urls.py, add the following:
+
+        from django.contrib import admin
+        from django.urls import path, include
+        urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', include('hello_world.urls')),
+
+
+-This looks for a module called urls.py inside the hello_world application and
+  registers any URLs defined there. 
+-Whenever you visit the root path of your URL
+  (localhost:8000), the hello_world application’s URLs will be registered. 
+-The hello_world.urls module doesn’t exist yet, so it needs to be created:
+
+
+-Inside this module, we need to import the path object as well as our app’s views
+module. 
+-Then create a list of URL patterns that correspond to the various view functions. 
+-At the moment, there is only one view function, so only one URL should be created:
+
+python manage.py runserver
