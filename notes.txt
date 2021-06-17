@@ -1,0 +1,52 @@
+
+-create a virtual environment
+pip install virtualenv
+virtualenv env 
+/env/Scripts/activate
+
+-install Django
+pip install django
+
+-create project
+django-admin startproject personal_portfolio
+
+-This will create a new folder nyoni_portfolio. 
+-cd into this new folder there is another folder called nyoni_portfolio 
+and a file called manage.py. 
+-Your folder structure should look something like this:
+
+Django-Portfolio/
+│ ├──
+nyoni_portfolio/
+│ ├── nyoni_portfolio/
+│ │ ├── __init__.py
+│ │ ├── settings.py
+│ │ ├── urls.py
+│ │ └── wsgi.py
+│ │
+│ └── manage.py
+│ └──
+env/
+
+-Most of the work is done in that first nyoni_portfolio folder. 
+-it is helpful to move all the files up a directory.
+
+-it should look like this:
+
+Portfolio-Django/
+│ ├──
+nyoni_portfolio/
+│ ├── __init__.py
+│ ├── settings.py
+│ ├── urls.py
+│ └── wsgi.py
+│ ├──
+env/
+│ └──
+manage.py
+
+-to get started run the following command:
+python manage.py runserver
+
+-To create the app, run the following command, example to be deleted later:
+python manage.py startapp hello_world
