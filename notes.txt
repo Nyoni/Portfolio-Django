@@ -174,3 +174,10 @@ that base.html exists.
       },
       }
       ]
+
+
+-Whenever you want create templates or import scripts that you intend to use in 
+ all your Django apps inside a project, you can add them to this project-level 
+ directory and extend them inside your app templates.
+-I learnt how the Django templating engine works and how to create project-level
+ templates that can be shared by all the apps inside a Django project
