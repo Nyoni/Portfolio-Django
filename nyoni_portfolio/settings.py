@@ -55,7 +55,7 @@ ROOT_URLCONF = 'nyoni_portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['nyoni_portfolio/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
